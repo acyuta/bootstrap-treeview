@@ -264,10 +264,12 @@
 		$.each(node.nodes, function checkStates(index, node) {
 
 			// nodeId : unique, incremental identifier
-			node.nodeId = _this.nodes.length;
+			node.nodeId = _this.nodes.length;			
 
 			// parentId : transversing up the tree
 			node.parentId = parent.nodeId;
+
+			console.log(node);
 
 			// if not provided set selectable default value
 			if (!node.hasOwnProperty('selectable')) {
