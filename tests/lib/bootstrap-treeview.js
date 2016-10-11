@@ -264,12 +264,10 @@
 		$.each(node.nodes, function checkStates(index, node) {
 
 			// nodeId : unique, incremental identifier
-			node.nodeId = _this.nodes.length;			
+			node.nodeId = _this.nodes.length;
 
 			// parentId : transversing up the tree
 			node.parentId = parent.nodeId;
-
-			console.log(node);
 
 			// if not provided set selectable default value
 			if (!node.hasOwnProperty('selectable')) {
@@ -525,6 +523,15 @@
 			// Add indent/spacer to mimic tree structure
 			for (var i = 0; i < (level - 1); i++) {
 				treeItem.append(_this.template.indent);
+			}
+
+			//Add data-id
+			if (node.myid) {
+				treeItem.attr('data-id', node.myid);
+			}
+
+			if (node.parentmyid) {
+				treeItem.attr('data-parent-id', node.parentmyid);
 			}
 
 			// Add expand, collapse or empty spacer icons
